@@ -1,0 +1,11 @@
+\subsubsection{Risk 4: Prize Manipulation}
+
+A potential risk we identified in our carnival planning pertains to the game operators' incentive structure. Given that the game operators bear no financial risk, they may not be sufficiently motivated to limit prize giveaways. This situation could potentially lead to collusion between game operators and their friends, resulting in our prizes being obtained at a lower cost.
+
+The potential impact of this risk is significant. If unchecked, such collusion could lead to financial loss for the carnival and undermine the fairness of the games, potentially impacting the overall success of the event.
+
+To mitigate this risk, we implemented a robust detection and prevention strategy. During the sign-up process, game operators provide us with the theoretical probabilities of each game outcome and the prizes associated with each category. We then calculate the expected profit of their game, ensuring it is not excessively low. We anticipate that the expected profit may be low for many games, as it is calculated using the cost of the prize, while the perceived value of the prize may be much higher.
+
+Post-carnival, each game operator is required to produce a log detailing the number of times each outcome (lose, small, medium, large) occurred. We employ a Chi-Square Goodness of Fit Test [\ref{appendix:chi_square}] to determine whether any observed deviation from the expected number of wins is due to random chance or collusion.
+
+Prevention measures include strongly worded warnings to deter collusion. In the sign-up form, we included an “Agreements” section where operators acknowledge their understanding of our rules. We provided a detailed explanation of our cheating detection methods and warned that collusion would result in “corresponding consequences”. This comprehensive approach to risk management ensures the integrity of our carnival games and the fair distribution of prizes.

@@ -1,0 +1,34 @@
+\subsubsection{Risk 1: Misestimation of Ticket Distribution}
+
+\begin{table}[H]
+	\centering
+	\caption{Early bird pricing model}
+	\begin{tabular}{r|rr|rr}
+	\multicolumn{1}{l|}{\textbf{Tickets}} & \multicolumn{1}{l}{\textbf{Price / Ticket (\$)}} & \multicolumn{1}{l|}{\textbf{Price (\$)}} & \multicolumn{1}{l}{\textbf{Early Discount (\%)}} & \multicolumn{1}{l}{\textbf{Early Price (\$)}} \\ \hline
+	1                                     & \$ 1.00                                          & \$ 1.00                                  & 0\%                                              & \$ 1.00                                       \\
+	5                                     & \$ 0.90                                          & \$ 4.50                                  & 6\%                                              & \$ 4.25                                       \\
+	10                                    & \$ 0.80                                          & \$ 8.00                                  & 13\%                                             & \$ 7.00                                       \\
+	20                                    & \$ 0.75                                          & \$ 15.00                                 & 17\%                                             & \$ 12.50                                      \\
+	50                                    & \$ 0.50                                          & \$ 25.00                                 & 20\%                                             & \$ 20.00
+	\end{tabular}
+	\label{tab:ticket_pricing}
+\end{table}
+
+\autoref{tab:ticket_pricing} shows how the price per ticket changes as the number of tickets bought increases as well as the early-bird discount. The ticket pricing strategy we employed incorporated a quantity discount model, which offers a lower cost per ticket when purchased in larger quantities. Additionally, we implemented an early bird pricing model, providing a discount for tickets purchased in advance.
+
+\begin{table}[H]
+	\caption{Estimated ticket distribution. The count represents the percentage of people who bought that number of tickets. For example, we estimate that 40\% of people will buy 1 ticket.}
+	\begin{tabular}{r|rr}
+	\multicolumn{1}{l|}{\textbf{Tickets}} & \multicolumn{1}{l}{\textbf{Count (\%)}} & \multicolumn{1}{l}{\textbf{Price / Ticket (\$)}} \\ \hline
+	1                                     & 40\%                                    & \$ 1.00                                          \\
+	5                                     & 25\%                                    & \$ 0.90                                          \\
+	10                                    & 20\%                                    & \$ 0.80                                          \\
+	20                                    & 12\%                                    & \$ 0.75                                          \\
+	50                                    & 3\%                                     & \$ 0.50
+	\end{tabular}
+	\label{tab:estimated_ticket_distribution}
+\end{table}
+
+We also estimated the distribution of ticket purchases, as shown in \autoref{tab:estimated_ticket_distribution}. This estimation was based on surveys conducted among a random selection of individuals from our classes. Their responses were factored into the final estimate. Consequently, we calculated the estimated average price per ticket to be \$0.75.
+
+It is important to note that while estimating the average price per ticket, we did not consider the early bird discount. This discount was primarily intended for friends of the carnival game operators, and we do not anticipate a significant portion of total ticket sales to be early bird sales.

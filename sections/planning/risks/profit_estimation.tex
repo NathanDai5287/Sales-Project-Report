@@ -1,0 +1,58 @@
+\subsubsection{Risk 5: Inaccuracies in Profit Estimation and Prize Selection}
+
+A potential risk we identified pertains to the use of the Expected Profit Calculator and the selection of prizes. The calculator, which can be accessed \href{https://carnival.streamlit.app/}{here}, is designed to assist carnival game operators in pricing their games and selecting prizes based on the expected values of winning each prize. However, there is a risk that the calculator may not accurately reflect the real-world dynamics of the carnival games, leading to potential financial loss.
+
+The potential impact of this risk is significant. If the calculator's predictions are inaccurate, game operators may price their games too low or select prizes that are too costly, leading to reduced profits or even financial loss. This could also impact the overall success of the carnival, as financial losses could affect the ability to host future events.
+
+To mitigate this risk, we implemented a robust strategy of pricing games and selecting prizes. Firstly, the revenue is calculated using the number of tickets per play multiplied by the estimated average price of each ticket. We will also calculate the probability that the game operator loses money on a single play, and the number of times a game needs to be played so that there is a 95\% chance of winning money. This helps game operators estimate the risk of losing money throughout the entire carnival and decide how long they need to run their game for.
+
+The expected profit per play is calculated using the formula:
+
+$$E(x)=R-\sum P(x_i)x_i$$
+
+where:
+\begin{conditions}
+E(x) & the expected profit per play \\
+R & the revenue per play (determined by the number of tickets to play) \\
+x_i & the value of prize $x_i$ (small, medium, or large) \\
+P(x_i) & the probability of winning prize $x_i$
+\end{conditions}
+
+The probability that the game operator loses money on a single play is calculated by going through each of the prizes and figuring out whether each prize tier leads to a loss.
+
+The number of times a game needs to be played so that there is a 95\% chance of winning money is calculated by estimating the standard deviation of the profit after n plays and finding the value of n that leads to 5\% of the area under the Gaussian distribution lying below zero.
+
+We estimate the standard deviation of the cost incurred by giving out prizes of a single play using the formula for standard deviation for a discrete random variable:
+
+$$\sigma=\sqrt{\sum(x_i-E(x))^2\cdot P(x_i)}$$
+
+where:
+\begin{conditions}
+\sigma & the standard deviation of the cost incurred by giving out prizes of a single play \\
+x_i & the value of prize $x_i$ (small, medium, or large) \\
+E(x) & the expected profit per play \\
+P(x_i) & the probability of winning prize $x_i$
+\end{conditions}
+
+After $n$ plays, the standard deviation would be $\frac{\sigma}{\sqrt{n}}$
+
+The following equation relating the standard deviation after $n$ plays to the expected profit after $n$ plays:
+
+$$E(x)=\frac{\sigma}{\sqrt{n}}\cdot\textrm{ppf}(0.95)$$
+
+where:
+\begin{conditions}
+E(x) & the expected profit after $n$ plays \\
+\frac{\sigma}{\sqrt{n}} & the standard deviation after $n$ plays \\
+\textrm{ppf}(0.95) & the 95th percentile of the standard normal distribution
+\end{conditions}
+
+Solving for $n$, we get:
+
+$$n=\left(\frac{\sigma}{E(x)\cdot\textrm{ppf}(0.95)}\right)^2$$
+
+We interpret the result $n$ as the number of plays needed so that there is a 95\% chance of winning money.
+
+We will recommend that game operators price their games and choose prizes such that the number of plays needed to win money is only a few times.
+
+To simplify this calculation, we created the Expected Profit Calculator so that game operators could input the number of tickets per play, the probability of winning each prize, and the cost of each prize. The website then outputs the expected profit per play, the probability that the game operator loses money on a single play, and the number of times a game needs to be played so that there is a 95\% chance of winning money. The app also displays a graph so users can easily understand what each value represents. This website can be accessed at \url{https://carnival.streamlit.app/}.

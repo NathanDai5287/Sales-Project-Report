@@ -1,0 +1,96 @@
+\documentclass[10pt,a4paper,table,xcdraw]{article}
+
+\counterwithin{figure}{section}
+
+\addtolength{\oddsidemargin}{-.5in}
+\addtolength{\evensidemargin}{-.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1in}
+
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\graphicspath{{images/}}
+\usepackage{pgf-pie}
+\usepackage{pdfpages}
+
+% Math
+\usepackage{amssymb}
+\usepackage{amsmath} % Required for some math elements
+
+% Other
+\usepackage{algorithmic}
+\usepackage{array}
+\usepackage{lipsum}
+\usepackage{pgfplots}
+% \usepackage{hyperref}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{snakes}
+\usepackage{rotating}
+
+% tables
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{titlesec}
+
+\usepackage{parskip}
+\usepackage[toc,page]{appendix}
+\usepackage[hidelinks]{hyperref}
+
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
+\usepackage{tocloft}
+
+\addtolength{\cftsecnumwidth}{10pt}
+
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent\begin{tabular}{>{$}l<{$} @{${}={}$} l}}
+  {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+% Define section numbering style
+\renewcommand{\thesection}{\Roman{section}} % Capital Roman numerals for sections
+\renewcommand{\thesubsection}{\Alph{subsection}} % Capital letters for subsections
+\renewcommand{\thesubsubsection}{\roman{subsubsection}} % Lowercase Roman numerals for subsubsections
+
+\usepgfplotslibrary{external}
+\tikzexternalize
+
+\pgfplotsset{compat=1.18}
+
+\begin{document}
+
+\title{DECA Sales Project} % Title
+\author{(in order of importance and reverse height) Nathan Dai, Lynn Huang, Ruby Gao}
+% \date{\today} % Date for the report
+\date{February 2024} % Date for the report
+\maketitle % Inserts the title, author and date
+
+\clearpage
+\setcounter{tocdepth}{4}
+\tableofcontents
+\clearpage
+
+\input{sections/summary/executive_summary}
+\input{sections/initiating/initiating}
+\input{sections/planning/planning_organizing}
+\input{sections/execution/execution}
+\input{sections/monitoring_controlling/monitoring_controlling}
+\input{sections/closing/closing}
+
+\clearpage
+
+% Bibliography
+\bibliographystyle{IEEEtran}
+\bibliography{bibliography/references}{}
+% \printbibliography
+
+% Appendix
+\begin{appendices}
+	\input{sections/appendix/appendix}
+\end{appendices}
+
+\end{document}
